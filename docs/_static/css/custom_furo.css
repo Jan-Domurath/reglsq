@@ -1,0 +1,33 @@
+/* For Furo theme */
+
+.sidebar-brand-text {
+    font-size: 1.3rem;
+    color: var(--color-sidebar-brand-text);
+}
+
+.sidebar-brand-version {
+    font-size: 0.9rem;
+    color: var(--color-sidebar-brand-text);
+}
+
+/* pygmets line highlight */
+.highlight .hll {
+    background-color: #51b2fd2e;
+    box-shadow: 2px 0 0 0 hsla(231, 99%, 66%, 1) inset;
+}
+
+
+body[data-theme="dark"] .highlight .hll {
+    background-color: #404040;
+    box-shadow: 2px 0 0 0 rgb(150, 150, 150) inset;
+}
+
+/* make autosummary tables full width */
+.longtable {
+    width: 98%;
+}
+
+.longtable tr td:first-child {
+    /* width: 50%; */
+    white-space: nowrap;
+}

@@ -1,0 +1,56 @@
+{
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+
+     // remove trailing whitespace on save, so we don't create "empty diffs"
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+
+    // "python.envFile": "${workspaceFolder}/.env",
+
+    // show line length indicators
+    "[python]": {
+        "editor.rulers": [
+            79,
+            120
+        ]
+    },
+
+    // "autoDocstring.docstringFormat": "numpy",
+
+    // testing
+    "python.testing.autoTestDiscoverOnSaveEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+
+    "python.analysis.typeCheckingMode": "basic",
+
+    // configure linting with pylint/flake8/pycodestyle/mypy
+    "python.linting.enabled": true,
+
+    // pylint
+    // pylint is rather slow
+    "python.linting.pylintEnabled": false,
+    "python.linting.pylintArgs": ["--disable=invalid-name,missing-function-docstring,missing-module-docstring,line-too-long"],
+
+    // ignore some errors
+    // E501: line too long
+    // E226: missing whitespace around arithmetic operator
+    // flake8
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": ["--ignore=E501,E226"],
+    // pycodestyle
+    "python.linting.pycodestyleEnabled": false,
+    "python.linting.pycodestyleArgs": ["--ignore=E501,E226"],
+
+    // mypy
+    "python.linting.mypyEnabled": true,
+    // "python.linting.mypyArgs": ["--ignore-missing-imports", "--follow-imports=silent", "--show-error-codes"],
+
+    "python.linting.ignorePatterns": [
+        ".vscode/*.py",
+        "**/site-packages/**/*.py",
+        "doc/*.py"
+    ]
+}

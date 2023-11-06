@@ -1,0 +1,25 @@
+-r requirements.txt
+
+# testing
+pytest
+pytest-cov
+
+# for documentation
+Sphinx
+furo
+sphinx_design
+sphinx-copybutton
+myst-parser
+autoclasstoc
+sphinxcontrib-bibtex
+
+
+# linting
+mypy
+flake8
+pep8-naming
+flake8-no-pep420
+# ruff  # skipp ruff for now, does not support all pycodestyle rules yet https://github.com/astral-sh/ruff/issues/2402
+
+# building
+build  # use `python -m build` to build the package

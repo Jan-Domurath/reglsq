@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // disable coverage when debugging tests
+            // https://code.visualstudio.com/docs/python/testing#_pytest-configuration-settings
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "purpose": ["debug-test"],
+            "env": {"PYTEST_ADDOPTS": "--no-cov"}
+        },
+
+    ]
+}

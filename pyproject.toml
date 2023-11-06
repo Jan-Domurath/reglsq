@@ -1,0 +1,88 @@
+[build-system]
+requires = [
+    "setuptools>=64",
+    "wheel",
+    "setuptools_scm[toml]>=6.2"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+
+[project]
+name = "reglsq"
+description = "Regularized least squares"
+readme = "README.md"
+requires-python = ">=3.8"
+# version = "0.0.1"    # don't use! we get the version nmber with setuptools_scm
+dynamic = ["version"]  # get version from setuptools_scm
+dependencies = [
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov"
+]
+
+# ---- configure pytest ------------------------------------------------------
+
+[tool.pytest.ini_options]
+# for import-mode see: https://docs.pytest.org/en/7.1.x/explanation/goodpractices.html#choosing-an-import-mode
+addopts = [
+    "--ignore=docs/conf.py",
+    "--doctest-modules",
+    "--doctest-glob=docs/*test_*.rst",
+    "--cov=reglsq",
+    "--cov-report=xml:coverage.xml",
+    "--cov-report=term",
+    "--junitxml=report.xml",
+    "--import-mode=importlib",
+    "--strict-config",
+    "--strict-markers",
+    "-ra"
+]
+
+testpaths = [
+    "test",
+    "docs"
+]
+
+# needed if we want to use sonarqube
+[tool.coverage.run]
+relative_files = true
+
+# ---- configure ruff --------------------------------------------------------
+[tool.ruff]
+# Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
+select = ["F", "E", "W", "C90", "I", "N", "D", "UP", "S", "BLE", "FBT", "B", "A", "COM", "C4", "EM", "EXE", "ISC", "G", "INP", "PYI", "PT", "SIM", "ARG", "PTH", "PD", "NPY", "PL"]
+ignore = ["E501", "D400", "S101"]
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["F", "E", "W", "C90", "I", "N", "D", "UP", "S", "BLE", "FBT", "B", "A", "COM", "C4", "EM", "EXE", "ISC", "G", "INP", "PYI", "PT", "SIM", "ARG", "PTH", "PD", "NPY", "PL"]
+unfixable = []
+
+# Assume Python 3.10.
+target-version = "py310"
+
+[tool.ruff.pydocstyle]
+convention = "numpy"
+
+[tool.isort]
+profile = "black"
+known_first_party = "reglsq"
+
+
+# ---- configure mypy --------------------------------------------------------
+
+[tool.mypy]
+
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_no_return = true
+warn_unreachable = true
+
+[[tool.mypy.overrides]]
+module = [
+    "setuptools_scm.*"
+]
+ignore_missing_imports = true
