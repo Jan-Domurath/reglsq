@@ -1,4 +1,5 @@
 # core dependencies
-
+numpy
+scipy
 
 setuptools_scm  # needed at runtime if not installed, to get the correct package version

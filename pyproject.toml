@@ -16,6 +16,8 @@ requires-python = ">=3.8"
 # version = "0.0.1"    # don't use! we get the version nmber with setuptools_scm
 dynamic = ["version"]  # get version from setuptools_scm
 dependencies = [
+    "numpy",
+    "scipy",
 ]
 
 [project.optional-dependencies]
