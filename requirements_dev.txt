@@ -15,6 +15,7 @@ sphinxcontrib-bibtex
 
 
 # linting
+isort
 mypy
 flake8
 pep8-naming

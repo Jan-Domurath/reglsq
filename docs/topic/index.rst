@@ -7,3 +7,4 @@ Topic Guides
    :caption: Contents
 
    Tikhonov.rst
+   viscoelastic_spectrum.rst

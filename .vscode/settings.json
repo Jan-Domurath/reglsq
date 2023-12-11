@@ -1,4 +1,10 @@
 {
+    // you need to have the following vscode extensions installed
+    // isort: https://marketplace.visualstudio.com/items?itemName=ms-python.isort
+    // Mypy Type Checker: https://marketplace.visualstudio.com/items?itemName=ms-python.mypy-type-checker
+    // Flake8: https://marketplace.visualstudio.com/items?itemName=ms-python.flake8&ssr=false#overview
+
+
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
 
@@ -14,43 +20,27 @@
         "editor.rulers": [
             79,
             120
-        ]
+        ],
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        },
     },
 
-    // "autoDocstring.docstringFormat": "numpy",
 
     // testing
     "python.testing.autoTestDiscoverOnSaveEnabled": true,
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
 
-    "python.analysis.typeCheckingMode": "basic",
 
-    // configure linting with pylint/flake8/pycodestyle/mypy
-    "python.linting.enabled": true,
+    // linting
+    "python.analysis.typeCheckingMode": "off",
 
-    // pylint
-    // pylint is rather slow
-    "python.linting.pylintEnabled": false,
-    "python.linting.pylintArgs": ["--disable=invalid-name,missing-function-docstring,missing-module-docstring,line-too-long"],
+    "flake8.importStrategy": "fromEnvironment",  // use flake8 from venv
+    "mypy-type-checker.importStrategy": "fromEnvironment",  // use mypy from venv
 
-    // ignore some errors
-    // E501: line too long
-    // E226: missing whitespace around arithmetic operator
-    // flake8
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": ["--ignore=E501,E226"],
-    // pycodestyle
-    "python.linting.pycodestyleEnabled": false,
-    "python.linting.pycodestyleArgs": ["--ignore=E501,E226"],
+    "isort.importStrategy": "fromEnvironment",    // use isort from venv
+    // "isort.args":["--profile", "black"],  // should be read from pyproject.toml
 
-    // mypy
-    "python.linting.mypyEnabled": true,
-    // "python.linting.mypyArgs": ["--ignore-missing-imports", "--follow-imports=silent", "--show-error-codes"],
 
-    "python.linting.ignorePatterns": [
-        ".vscode/*.py",
-        "**/site-packages/**/*.py",
-        "doc/*.py"
-    ]
 }
